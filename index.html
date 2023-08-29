@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cursor.css" id="thecursor">
+    <link rel="stylesheet" href="other/other/show-hint.css">
+    <link rel="stylesheet" href="other/other/lint.css">
+    <link rel="stylesheet" href="other/other/dialog.css">
+    <link rel="stylesheet" href="other/other/simplescrollbars.css">
+
+    <link rel="stylesheet" href="other/themes/codemirror.css">
+    <link rel="stylesheet" href="other/themes/base16-dark.css">
+    <link rel="stylesheet" href="other/themes/ayu-dark.css">
+    <link rel="stylesheet" href="other/themes/dracula.css">
+    <link rel="stylesheet" href="other/themes/eclipse.css">
+    <link rel="stylesheet" href="other/themes/material.css">
+    <link rel="stylesheet" href="other/themes/night.css">
+    <link rel="stylesheet" href="other/themes/yonce.css">
+    <link rel="stylesheet" href="other/themes/the-matrix.css">
+    <link rel="stylesheet" href="other/themes/lesser-dark.css">
+    <link rel="stylesheet" href="other/themes/rubyblue.css">
+
+    <link rel="stylesheet" href="other/themes/removeback.css">
+
+    <link rel="icon" type="image/x-icon" href="faviicon.png">
+    <title>BETTER IDE</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="closesett" id="closesett"></div>
+
+    <div class="opt" id="thesettings">
+        <div class="first">
+            <h2>Layout Settings</h2>
+            <div class="layouts">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <p class="extra2 hover1 special" id="layoutd">Default</p>
+                <ion-icon name="download-outline"></ion-icon>
+                <p class="extra hover1 special" id="layoutb">Bottom</p>
+                <ion-icon name="documents-outline"></ion-icon>
+                <p class="hover1 special" id="layoutt">Tabs</p>
+            </div>
+        </div>
+
+        <div class="first moreheight">
+            <h2>General Settings</h2>
+            <div class="layouts">
+                <input type="checkbox" id="autosave"></input>
+                <p class="extra2">Auto-Save</p>
+                <input type="checkbox" id="autorun"></input>
+                <p class="extra">Auto-Run</p>
+                <input type="checkbox" id="thehints"></input>
+                <p>Hints</p>
+            </div>
+
+            <div class="layouts">
+                <input type="checkbox" id="keysound"></input>
+                <p class="extra2">Key-Sounds</p>
+                <input type="checkbox" id="linenumbers"></input>
+                <p class="extra2">Line-Numbers</p>
+                <input type="checkbox" id="autobrackets"></input>
+                <p>Auto-Brackets</p>
+            </div>
+        </div>
+
+        <div class="first moreheight noborder">
+            <h2>General Theme </h2>
+            <div class="layouts">
+                <button id="resetbtn">Reset</button>
+                <input type="color" class="colorinp" id="colorinp"></input>
+                <p class="extra2" id="thebodyc">Body-Color</p>
+                <select class="theselect2" id="animselect">
+                    <option value="Night Car">Night Car</option>
+                    <option value="Ocean">Ocean</option>
+                </select>
+                <select class="theselect" id="backselect">
+                    <option value="op1">Color</option>
+                    <option value="op2" selected>Video</option>
+                </select>
+                <p class="extra">Background</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="navbar">
+
+        <img src="fakevs.png">
+
+
+        <div class="therun">
+
+            <div id="theexecute">
+                <ion-icon name="caret-forward-outline"></ion-icon>
+                <button class="run">Run</button>
+            </div>
+
+            <div>
+                <ion-icon name="save-outline" class="margin2"></ion-icon>
+                <button class="run abracad">Save</button>
+            </div>
+
+            <input type="range" class="margin2" max="1500" min="1000" id="rangeinp" value="1500">
+
+            <select class="margin2" id="selectstyle">
+                <option class="thecolor" value="base16-dark">--base16-dark--</option>
+                <option value="ayu-dark">--ayu-dark--</option>
+                <option value="dracula">--dracula--</option>
+                <option value="eclipse">--eclipse--</option>
+                <option value="material">--material--</option>
+                <option value="night">--night--</option>
+                <option value="yonce">--yonce--</option>
+                <option value="the-matrix">--the-matrix--</option>
+                <option value="lesser-dark">--lesser-dark--</option>
+                <option value="rubyblue">--rubyblue--</option>
+            </select>
+
+            <select class="margin2 morewidth" id="selectfont">
+                <option value="Roboto Mono, monospace">Roboto Mono, monospace</option>
+                <option value="'Bricolage Grotesque', sans-serif">Bricolage Grotesque, sans-serif</option>
+                <option value="'Tilt Prism', cursive">Tilt Prism, cursive</option>
+                <option value="'Poppins', sans-serif">Poppins, sans-serif</option>
+                <option value="'Merriweather', serif">Merriweather, serif</option>
+                <option value="'Roboto Condensed', sans-serif">Roboto Condensed,sans-serif</option>
+                <option value="'Ubuntu', sans-serif">Ubuntu, sans-serif</option>
+                <option value="'Kanit', sans-serif">Kanit, sans-serif</option>
+                <option value="'PT Sans', sans-serif">PT Sans, sans-serif</option>
+                <option value="'Caprasimo', cursive">Caprasimo, cursive</option>
+            </select>
+
+            <input value="16" min="8" max="40" type="number" id="selectsize" class="sizechange margin2">
+
+            <select class="margin2 morewidth2" id="selectcursor">
+                <option value="cursor1">Cursor: default</option>
+                <option value="cursor2">Cursor: crosshair</option>
+            </select>
+
+            <ion-icon name="settings-outline" class="setting margin2" id="optionicon"></ion-icon>
+
+        </div>
+    </div>
+
+
+
+    <video autoplay muted loop id="video1">
+        <source src="video/Untitled.mov" type="video/mp4">
+    </video>
+
+
+    <div class="side">
+
+    </div>
+
+
+<div class="main6">
+        <div class="thebg">
+          <img src="https://wallpapercave.com/dwp1x/wp12411466.jpg"></img>
+        </div>
+        <h2>Support Me Please <3 <br><span id="smth"></span></h2>
+        <p><a href="https://www.instagram.com/denis8.sw/?hl=de" target="_blank">Instagram</a></p>
+        <p><a href="https://patreon.com/denis8sw" target="_blank">Patreon</a></p>
+        <button class="supportx">Yes ❤️</button>
+      </div>
+
+    <div class="main" id="themainc">
+        <div class="imp" id="theimp">
+            <div id="divCodeWrapper" class="divCodeWrapper removeborder removeborder2">
+                <textarea ID="textarea1" wrap="false" spellcheck="false">
+                </textarea>
+            </div>
+
+            <div id="divCodeWrapper2" class="divCodeWrapper removeborder removeborder2 removeborder4">
+                <textarea ID="textarea2" wrap="false" spellcheck="false">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="imp2" id="theimp2">
+            <div id="divCodeWrapper3" class="divCodeWrapper removeborder2">
+                <textarea ID="textarea3" wrap="false" spellcheck="false">
+                </textarea>
+            </div>
+
+
+            <div id="divCodeWrapper4" class="divCodeWrapper">
+                <iframe id="theframe"></iframe>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="tabs" id="thetabs">
+        <div class="thetabs">
+            <div class="thelang">
+                <div class="divcon" id="thehtml">
+                    <p>HTML</p>
+                </div>
+                <div class="divcon thecss" id="thecss">
+                    <p>CSS</p>
+                </div>
+                <div class="divcon" id="thejs">
+                    <p>JS</p>
+                </div>
+                <div class="divcon other" id="theresult">
+                    <p>RESULT</p>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+
+
+    <audio id="clickSound">
+        <source src="audio/mech-keyboard-02-102918.mp3" type="audio/mp3">
+    </audio>
+
+
+
+
+
+
+
+
+
+    <script src="scripts/maincss.js"></script>
+    <script src="scripts/mainjs.js"></script>
+    <script src="scripts/styles.js"></script>
+    <script src="scripts/cursor.js"></script>
+    <script src="other/codemirror.js"></script>
+    <script src="other/xml.js"></script>
+    <script src="other/css.js"></script>
+    <script src="other/javascript.js"></script>
+    <script src="other/closetag.js"></script>
+    <script src="other/closebrackets.js"></script>
+    <script src="other/show-hint.js"></script>
+    <script src="other/xml-hint.js"></script>
+    <script src="other/javascript-hint.js"></script>
+    <script src="other/css-hint.js"></script>
+    <script src="other/html-hint.js"></script>
+    <script src="other/css-lint.js"></script>
+    <script src="other/javascript-lint.js"></script>
+
+    <script src="other/search.js"></script>
+    <script src="other/searchcursor.js"></script>
+    <script src="other/jump-to-line.js"></script>
+    <script src="other/dialog.js"></script>
+    <script src="other/simplescrollbars.js"></script>
+
+    <script src="scripts/functions.js"></script>
+    <script src="other/lint.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/fontchange.js"></script>
+    <script src="scripts/size.js"></script>
+
+    <script src="scripts/options.js"></script>
+    <script src="scripts/layouts.js"></script>
+
+    <script src="scripts/audio.js"></script>
+
+    <script src="https://unpkg.com/prettier@3.0.1/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.1/plugins/graphql.js"></script>
+
+    <script>
+        (async () => {
+            const formatted = await prettier.format("type Query { hello: String }", {
+                parser: "graphql",
+                plugins: prettierPlugins,
+            });
+        })();
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
